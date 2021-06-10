@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {MenuItem} from 'primeng/api';
 @Component({
   selector: 'app-menubar',
@@ -7,7 +8,7 @@ import {MenuItem} from 'primeng/api';
 })
 export class MenubarComponent implements OnInit {
 
-  constructor() { }
+  constructor( private router: Router) { }
 
   items: MenuItem[] | any;
 
@@ -16,12 +17,16 @@ export class MenubarComponent implements OnInit {
           {
               label: 'CRUD',
               items: [
-                  {label: 'Home',url: 'home'},
-                  {label: 'Student',url: 'student'},
-                  {label: 'Add-Student',url: 'add'}
+                  {label: 'Home',command: () => this.gotopage('home')},
+                  {label: 'Student',command: () => this.gotopage('student')},
+                  {label: 'Add-Student',command: () => this.gotopage('add')}
               ]
           },
       ];
   }
+
+  gotopage(location: string){
+    this.router.navigate([location]);
+ }
 
 }
