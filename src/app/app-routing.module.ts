@@ -7,10 +7,10 @@ import {EditStudentComponent} from './edit-student/edit-student.component';
 import {ErrorpageComponent} from './errorpage/errorpage.component';
 const routes: Routes = [
   {path:'',pathMatch:'full',redirectTo:'home'},
-  {path:'home',component:HomeComponent},
-  {path:'add',component:AddStudentComponent},
-  {path:'edit',component:EditStudentComponent},
-  {path:'student',component:StudentComponent},
+  {path:'/home',component:HomeComponent},
+  {path:'/add',component:AddStudentComponent},
+  {path:'/edit',component:EditStudentComponent},
+  {path:'/student',component:StudentComponent},
   {path:'**',component:ErrorpageComponent},
   ];
 
