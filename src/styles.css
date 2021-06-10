@@ -1,0 +1,15 @@
+section.container {
+  display: grid;
+  grid-template-rows: 70px 1fr;
+  height: 100vh;
+}
+.card_container {
+  display: grid;
+  justify-content: center;
+}
+.input_card {
+  padding: 0.5em;
+}
+.border_card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

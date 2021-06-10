@@ -1,0 +1,84 @@
+<div class="card_container">
+  <p-card header="Student System" class="border_card"  subheader="create by Wissarut" [style]="{width: '1720px'}" styleClass="p-card-shadow">
+    <ng-template pTemplate="header">
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <div class="p-grid p-fluid">
+        <div class="p-col-4 p-md-4">
+          <div class="p-inputgroup input_card">
+            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <input type="text" [formControl]="nameFormControl" pInputText >
+          </div>
+          <sub>
+            <p-message *ngIf="nameFormControl.dirty && nameFormControl.invalid" severity="error" text="Field is required">
+            </p-message>
+          </sub>
+        </div>
+        <div class="p-col-4 p-md-4">
+          <div class="p-inputgroup input_card">
+            <span class="p-inputgroup-addon">@</span>
+            <input type="text" [formControl]="emailFormControl" pInputText >
+          </div>
+          <sub>
+            <p-message *ngIf="emailFormControl.dirty && emailFormControl.invalid" severity="error"
+              text="Field is required"></p-message>
+            <p-message *ngIf="emailFormControl.hasError('email') && emailFormControl.dirty && emailFormControl.invalid"
+              severity="error" text="Invalid email"></p-message>
+          </sub>
+        </div>
+        <div class="p-col-4 p-md-4">
+          <div class="p-inputgroup input_card">
+            <span class="p-inputgroup-addon">Tel</span>
+            <input type="text" [formControl]="telFormControl" pInputText >
+          </div>
+          <sub>
+            <p-message *ngIf="telFormControl.dirty && telFormControl.invalid" severity="error" text="Field is required">
+            </p-message>
+          </sub>
+        </div>
+      </div>
+      <p-button class="input_card" label="ค้นหา" (onClick)="queryStudent()"  icon="pi pi-search"></p-button>
+      <p-button class="input_card" label="ยกเลิก" (onClick)="clearStudent()" icon="pi pi-refresh" styleClass="p-button-secondary"
+        [style]="{'margin-left': '.5em'}">
+      </p-button>
+    </ng-template>
+  </p-card>
+<br> <p-button class="input_card" [routerLink]="['/add']" label="เพิ่ม" icon="pi pi-plus"></p-button>
+<br>
+  <p-card header="Table Student " class="border_card" [style]="{width: '1720px'}" styleClass="p-card-shadow">
+    <ng-template pTemplate="header">
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <p-table [value]="studentModels"
+   [paginator]="true" [rows]="5"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Tel</th>
+        <th class="p-table-button"></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-student>
+      <tr>
+        <td>{{ student.name }}</td>
+        <td>{{ student.email }}</td>
+        <td>{{ student.tel }}</td>
+        <td>
+          <p-button
+          icon="pi pi-pencil"
+          (onClick)="editStudent(student)"
+          ></p-button>
+          <p-button
+          (onClick)="deleteStudent(student)"
+          icon="pi pi-trash" styleClass="p-button-danger"></p-button>
+
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+    </ng-template>
+  </p-card>
+
+</div>

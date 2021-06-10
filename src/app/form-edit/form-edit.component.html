@@ -1,0 +1,47 @@
+<div [formGroup]="editStudentFormGroup" class="student-form">
+  <p-card class="border_card" header="เพิ่มรายชื่อนักศึกษา" [style]="{width: '400px'}" styleClass="p-card-shadow">
+    <ng-template pTemplate="header">
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <div class="p-grid p-fluid">
+        <div class="p-col-12 p-md-4">
+          <div class="p-inputgroup input_card">
+            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <input type="text" [formControl]="nameFormControl" pInputText>
+          </div>
+          <sub>
+            <p-message *ngIf="nameFormControl.dirty && nameFormControl.invalid" severity="error"
+              text="Field is required">
+            </p-message>
+          </sub>
+        </div>
+        <div class="p-col-12 p-md-4">
+          <div class="p-inputgroup input_card">
+            <span class="p-inputgroup-addon">@</span>
+            <input [formControl]="emailFormControl" type="text" pInputText>
+
+          </div>
+          <sub>
+            <p-message *ngIf="emailFormControl.dirty && emailFormControl.invalid" severity="error"
+              text="Field is required"></p-message>
+            <p-message *ngIf="emailFormControl.hasError('email') && emailFormControl.dirty && emailFormControl.invalid"
+              severity="error" text="Invalid email"></p-message>
+          </sub>
+        </div>
+        <div class="p-col-12 p-md-4">
+          <div class="p-inputgroup input_card">
+            <span class="p-inputgroup-addon">Tel</span>
+            <input [formControl]="telFormControl" type="text" pInputText>
+          </div>
+          <sub>
+            <p-message *ngIf="telFormControl.dirty && telFormControl.invalid" severity="error" text="Field is required">
+            </p-message>
+          </sub>
+        </div>
+      </div>
+      <p-button label="เพิ่ม" (onClick)="saveStudent()" class="input_card" icon="pi pi-check" styleClass="p-button-success"></p-button>
+      <p-button label="ย้อนกลับ" [routerLink]="['/student']" class="input_card" icon="pi pi-times">
+      </p-button>
+    </ng-template>
+  </p-card>
+</div>
