@@ -116,6 +116,6 @@ export class StudentComponent implements OnInit {
 
   editStudent(student: StudentModel){
     this.appComponent.editStudent = student;
-    this.router.navigate(['/edit'])
+    this.router.navigate(['edit'])
   }
 }

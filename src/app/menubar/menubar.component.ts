@@ -16,9 +16,9 @@ export class MenubarComponent implements OnInit {
           {
               label: 'CRUD',
               items: [
-                  {label: 'Home',url: '/home'},
-                  {label: 'Student',url: '/student'},
-                  {label: 'Add-Student',url: '/add'}
+                  {label: 'Home',url: 'home'},
+                  {label: 'Student',url: 'student'},
+                  {label: 'Add-Student',url: 'add'}
               ]
           },
       ];
